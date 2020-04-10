@@ -6,7 +6,8 @@
 #include "haswell/intrinsics.h"
 
 TARGET_HASWELL
-namespace simdjson::haswell {
+namespace simdjson {
+namespace haswell {
 
 #ifndef _MSC_VER
 // We sometimes call trailing_zero on inputs that are zero,
@@ -71,7 +72,9 @@ really_inline bool mul_overflow(uint64_t value1, uint64_t value2,
                                    (unsigned long long *)result);
 #endif
 }
-}// namespace simdjson::haswell
+
+} // namespace haswell
+} // namespace simdjson
 UNTARGET_REGION
 
 #endif // SIMDJSON_HASWELL_BITMANIPULATION_H

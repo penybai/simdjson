@@ -5,7 +5,8 @@
 #include "westmere/intrinsics.h"
 
 TARGET_WESTMERE
-namespace simdjson::westmere {
+namespace simdjson {
+namespace westmere {
 
 #ifndef _MSC_VER
 // We sometimes call trailing_zero on inputs that are zero,
@@ -81,7 +82,9 @@ really_inline bool mul_overflow(uint64_t value1, uint64_t value2,
 #endif
 }
 
-} // namespace simdjson::westmere
+} // namespace westmere
+
+} // namespace simdjson
 UNTARGET_REGION
 
 #endif // SIMDJSON_WESTMERE_BITMANIPULATION_H

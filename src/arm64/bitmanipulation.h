@@ -4,7 +4,8 @@
 #include "simdjson.h"
 #include "arm64/intrinsics.h"
 
-namespace simdjson::arm64 {
+namespace simdjson {
+namespace arm64 {
 
 #ifndef _MSC_VER
 // We sometimes call trailing_zero on inputs that are zero,
@@ -24,8 +25,6 @@ really_inline int trailing_zeroes(uint64_t input_num) {
 #else
   return __builtin_ctzll(input_num);
 #endif // _MSC_VER
-
-} // namespace simdjson::arm64
 
 /* result might be undefined when input_num is zero */
 really_inline uint64_t clear_lowest_bit(uint64_t input_num) {
@@ -78,6 +77,7 @@ really_inline bool mul_overflow(uint64_t value1, uint64_t value2, uint64_t *resu
 #endif
 }
 
-} // namespace simdjson::arm64
+} // namespace arm64
+} // namespace simdjson
 
 #endif // SIMDJSON_ARM64_BITMANIPULATION_H
